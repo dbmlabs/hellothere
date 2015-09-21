@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>vWeekly Reporter</title>
+
+</head>
+<body>
+  <div class="container">
+
+  <div class="row">
+        <div class="control-group" id="fields">
+            <label class="control-label" for="field1">Weekly Report</label>
+            <form action="/" method="POST" role="form" autocomplete="off" >
+
+                <div class="controls">
+                  <div class="row">
+                    <div class="col-md-4">
+                    <div class="entry input-group col-xs-10">
+                        <input class="form-control" name="fields[]" type="text" placeholder="Subject" />
+                    </div>
+                    <div class="entry input-group col-xs-12">
+                        <textarea class="form-control" name="fields[]" type="text" placeholder="Description" rows="3"></textarea>
+                    </div>
+                    <div class="entry input-group col-xs-12">
+                        <input class="form-control" name="fields[]" type="text" placeholder="Hashtag" />
+                    </div>
+                    </div> <!--end of col -->
+                  </div> <!--end of row-->
+                </div> <! -- end of controls -->
+                <br>
+
+              <div class="btn-toolbar" role="toolbar" aria-label="...">
+                <div class="btn-group" role="group" aria-label="...">
+                  <button class="btn btn-success btn-add" type="button">
+                    <span class="glyphicon glyphicon-plus"></span>
+                  </button>
+                <div class="btn-group" role="group" aria-label="...">
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <div class="btn-group" role="group" aria-label="...">
+                <input type="submit" class="btn btn-default btn-primary" value="Submit">
+                </div>
+              </div><!--end btn-toolbar-->
+            </form><!--end of form -->
+
+        </div> <!-- end of control-group -->
+
+  </div> <!-- end of row -->
+</div> <!-- end of container -->
+
+</body>
+</html>
