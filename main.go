@@ -30,19 +30,52 @@ type Page struct {
 }
 
 func main() {
-	http.HandleFunc("/jon", homePage)
+	http.HandleFunc("/jcham", homePage)
 	http.HandleFunc("/tim", admin)
 	http.HandleFunc("/favicon.ico", punt)
 	http.HandleFunc("/api", post)
 	http.HandleFunc("/admin", admin)
 	http.HandleFunc("/login", loginHandler)
 	http.HandleFunc("/analytics", analytics)
+	http.HandleFunc("/search", search)
 	http.HandleFunc("/", index)
 	http.HandleFunc("/api/manager/tim", apiHandler)
 	if err := http.ListenAndServe(":9001", nil); err != nil {
 		log.Fatal("failed to start server", err)
 	}
 }
+
+func search(w http.ResponseWriter, r *http.Request) {
+	var searchResults []Data
+	tempPage := new(Page)
+
+	r.ParseForm()
+	search := r.FormValue("search")
+	fmt.Println("search input is", search)
+	if search != "" {
+		fmt.Println("doing a search")
+		searchResults = query(search)
+	}
+
+	buf := new(bytes.Buffer)
+	for _, value := range searchResults {
+		if value.Content == "" {
+			continue
+		}
+		//fmt.Println("this is reading from the database the different lines", value)
+		t := template.Must(template.New("form").Parse(form))
+		t.Execute(buf, value)
+	}
+	//fmt.Println("this is the string of template", buf.String())
+	tempPage.Form = buf.String()
+	t := template.Must(template.New("page").Parse(adminPage))
+	t.Execute(w, tempPage)
+
+	//t := template.Must(template.New("form").Parse(form))
+	//t.Execute(w, Tom)
+	fmt.Println("finished search page")
+}
+
 func apiHandler(w http.ResponseWriter, r *http.Request) {
 	values := readDB()
 	results, _ := json.Marshal(values)
@@ -70,13 +103,6 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/", 302)
 }
 func admin(w http.ResponseWriter, r *http.Request) {
-	r.ParseForm()
-	search := r.FormValue("search")
-	fmt.Println("search input is", search)
-	if search != "" {
-		fmt.Println("doing a search")
-		query(search)
-	}
 
 	temp := new(Page)
 
@@ -120,8 +146,11 @@ func homePage(w http.ResponseWriter, r *http.Request) {
 func query(query string) (results []Data) {
 	session, _ := mgo.Dial("192.168.22.128:27017")
 	c := session.DB("test").C("weekly")
+	//temp := new([]Data)
 
-	c.Find(bson.M{"manager": query}).All(&results)
+	c.Find(bson.M{"hash": query}).All(&results)
+	//results = append(results, *temp...)
+
 	fmt.Println("readDB")
 	fmt.Println("these are the search results")
 

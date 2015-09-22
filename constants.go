@@ -8,7 +8,9 @@ const (
       <meta http-equiv="Content-type" content="text/html; charset=utf-8">
       <title>Testing Pie Chart</title>
       <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+      <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>-->
+			<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+			<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
       <link href="http://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
       <script src="http://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
@@ -897,169 +899,195 @@ const (
 	</html>
 `
 	page = `<!DOCTYPE html>
-  <html lang="en">
-  <head>
-      <meta charset="utf-8">
-      <title>vWeekly Reporter</title>
-          <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-      <style type="text/css">
-      .entry:not(:first-of-type)
-  {
-      margin-top: 10px;
-  }
+	<html lang="en">
+	<head>
+	    <meta charset="utf-8">
+	    <title>vWeekly Reporter</title>
+	        <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <style type="text/css">
+	    .entry:not(:first-of-type)
+	{
+	    margin-top: 10px;
+	}
 
-  .glyphicon
-  {
-      font-size: 20px;
-  }
-      </style>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-      <link href="http://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
-      <script src="http://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+	.glyphicon
+	{
+	    font-size: 20px;
+	}
+	    </style>
+	    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>-->
+	    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+	    <link href="http://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
+	    <script src="http://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+
+	    <script>
+	      $(function() {
+	        var availableTags = [
+	          "#vROps",
+	          "#NSX",
+	          "#vSphere6",
+	          "#vRA",
+	          "#BigData",
+	          "#vCM",
+	          "#Containers",
+	          "#Docker",
+	          "#vDS",
+	          "#Dell",
+	          "#EVORack",
+	          "#vRAC",
+	          "#vCA"
+	        ];
+	        $( "#tags" ).autocomplete({
+	          source: availableTags
+	        });
+	      });
+	      </script>
+
+	</head>
+	<body>
+	  <nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#">VMware Weekly Reporter</a>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li class="active"><a href="#">Help <span class="sr-only">(current)</span></a></li>
+	        <li><a href="#">About</a></li>
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="#">Admin</a></li>
+	            <li><a href="#">Help</a></li>
+	            <li><a href="#">Something else here</a></li>
+	            <li role="separator" class="divider"></li>
+	            <li><a href="#">Separated link</a></li>
+	            <li role="separator" class="divider"></li>
+	            <li><a href="#">One more separated link</a></li>
+	          </ul>
+	        </li>
+	        <li><a href="#"><span class="sr-only">(current)</span></a></li>
+	        <li><a href="#"><span class="sr-only">(current)</span></a></li>
+	        <li><a href="#"><span class="sr-only">(current)</span></a></li>
+	        <li><a href="#"><span class="sr-only">(current)</span></a></li>
+	        <li><a href="#"><span class="sr-only">(current)</span></a></li>
+	        <li><a href="#"><span class="sr-only">(current)</span></a></li>
+	        <li><a href="#"><b>September 30th, 2015</b>: Jonathan Cham</a></li>
+					<li><img src="https://n2.cdn.socialcast.com/801245/socialcast.s3.amazonaws.com/tenants/5258/profile_photos/1750704/jc_square140.jpg?AWSAccessKeyId=AKIAISVYYXCGCXLJL2TQ&Expires=1445169600&Signature=OiWwWzyGsXa%2BcWpwbcQ2bG2XIwk%3D" height=50px></li>
+	      </ul>
+
+	    </div><!-- /.navbar-collapse -->
+
+	  </div><!-- /.container-fluid -->
+
+	</nav>
+	  <div class="container">
+	    <script>
+	    $(document).ready(function() {
+	    var max_fields      = 10; //maximum input boxes allowed
+	    var wrapper         = $(".group"); //Fields wrapper
+	    var add_button      = $(".btn-add"); //Add button ID
+
+	    var x = 1; //initlal text box count
+	    $(add_button).click(function(e){ //on add input button click
+	        e.preventDefault();
+	        if(x < max_fields){ //max input box allowed
+	          $(wrapper).append('<div><br><div class="pull-right"><a href="#" class="remove_field"><button class="btn btn-danger btn-add" type="button" align="right"><span class="glyphicon glyphicon-minus"></span></button></a></div><div class="entry input-group col-xs-10"><input class="form-control" name="fields[]" type="text" placeholder="Subject" /></div><div class="entry input-group col-xs-12"><textarea class="form-control" name="fields[]" type="text" placeholder="Description" rows="3"></textarea></div><div class="entry input-group col-xs-12"><input class="form-control" name="fields[]" type="text" placeholder="Hashtag" /></div><fieldset class="radiogroup"><label class="radio-inline"><input type="radio" name="inlineRadioOptions'+x+' id="inlineRadio1" value="good">good</label><label class="radio-inline"><input type="radio" name="inlineRadioOptions'+x+'" id="inlineRadio2" value="bad">bad</label><label class="radio-inline"><input type="radio" name="inlineRadioOptions'+x+'" id="inlineRadio3" value="competitive">competitive</label></fieldset></div>'); //add input box
+	            x++; //text box increment
+	        }
+	    });
+
+	    $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+	        e.preventDefault(); $(this).parent('div').parent('div').remove(); x--;
+	    })
+	    });
+	    </script>
+
+	  <div class="row">
+	        <div class="control-group" id="fields">
+	            <label class="control-label" for="field1">Weekly Report</label>
+
+	                <div class="row">
+	                  <div class="col-md-6">
+	                    <form action="/jon" role="form" autocomplete="off" >
+	                      <div class="group">
+	                        <div class="entry input-group col-xs-10">
+	                          <input class="form-control" name="fields[]" type="text" placeholder="Subject" required/>
+	                        </div>
+	                        <div class="entry input-group col-xs-12">
+	                          <textarea class="form-control" name="fields[]" type="text" placeholder="Description" rows="3" required></textarea>
+	                        </div>
+	                        <div class="entry input-group col-xs-12">
+	                          <input class="form-control" id="tags" name="fields[]" type="text" placeholder="Hashtag" required />
+	                        </div>
+	                        <fieldset class="radiogroup">
+	                        <label class="radio-inline">
+	                          <input type="radio" name="inlineRadioOptions0" id="inlineRadio1" value="good"> good
+	                        </label>
+	                        <label class="radio-inline">
+	                          <input type="radio" name="inlineRadioOptions0" id="inlineRadio2" value="bad"> bad
+	                        </label>
+	                        <label class="radio-inline">
+	                          <input type="radio" name="inlineRadioOptions0" id="inlineRadio3" value="competitive"> competitive
+	                        </label>
+	                      </fieldset>
+	                      </div> <!-- end of div class group -->
+	                    <br>
+	                      <div class="btn-toolbar" role="toolbar" aria-label="...">
+	                        <div class="btn-group" role="group" aria-label="...">
+	                          <button class="btn btn-success btn-add" type="button">
+	                            <span class="glyphicon glyphicon-plus"></span>
+	                          </button>
+	                        </div>
+	                        <div class="btn-group" role="group" aria-label="...">
+	                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	                        </div>
+	                        <div class="btn-group" role="group" aria-label="...">
+	                          <input type="submit" class="btn btn-default btn-primary" value="Submit">
+	                        </div><!--end btn-group-->
+	                      </div> <!-- end of button toolbar-->
+	                    </form><!--end of form -->
+	                    </div> <!--end of col -->
+
+	                    <div class="col-md-2">
+	                      <br>
+	                    </div>
+	                    <div class="col-md-4">
+	                      <form class="form-inline" action="/" method="POST">
+	                        <div class="form-group">
+	                          <label for="inputPassword2" class="sr-only">search terms</label>
+	                          <input type="text" class="form-control" name="search" placeholder="search terms">
+	                        </div>
+	                      <button type="submit" class="btn btn-default">Search</button>
+	                      </form>
+	                    </div>
+	                  </div> <!--end of row-->
+	                </div>
+	                <br>
 
 
-  </head>
-  <body>
-    <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">VMware Weekly Reporter</a>
-      </div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Help <span class="sr-only">(current)</span></a></li>
-          <li><a href="#">About</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Admin</a></li>
-              <li><a href="#">Help</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
-          </li>
-          <li><a href="#"><span class="sr-only">(current)</span></a></li>
-          <li><a href="#"><span class="sr-only">(current)</span></a></li>
-          <li><a href="#"><span class="sr-only">(current)</span></a></li>
-          <li><a href="#"><span class="sr-only">(current)</span></a></li>
-          <li><a href="#"><span class="sr-only">(current)</span></a></li>
-          <li><a href="#"><span class="sr-only">(current)</span></a></li>
-          <li><a href="#"><b>September 30th, 2015</b>: Jonathan Cham</a></li>
-        </ul>
+	        </div> <!-- end of control-group -->
 
-      </div><!-- /.navbar-collapse -->
+	  </div> <!-- end of row -->
+	</div> <!-- end of container -->
 
-    </div><!-- /.container-fluid -->
+	</body>
+	</html>
 
-  </nav>
-
-    <div class="container">
-      <script>
-      $(document).ready(function() {
-      var max_fields      = 10; //maximum input boxes allowed
-      var wrapper         = $(".group"); //Fields wrapper
-      var add_button      = $(".btn-add"); //Add button ID
-
-      var x = 1; //initlal text box count
-      $(add_button).click(function(e){ //on add input button click
-          e.preventDefault();
-          if(x < max_fields){ //max input box allowed
-            $(wrapper).append('<div><br><div class="pull-right"><a href="#" class="remove_field"><button class="btn btn-danger btn-add" type="button" align="right"><span class="glyphicon glyphicon-minus"></span></button></a></div><div class="entry input-group col-xs-10"><input class="form-control" name="fields[]" type="text" placeholder="Subject" /></div><div class="entry input-group col-xs-12"><textarea class="form-control" name="fields[]" type="text" placeholder="Description" rows="3"></textarea></div><div class="entry input-group col-xs-12"><input class="form-control" name="fields[]" type="text" placeholder="Hashtag" /></div><fieldset class="radiogroup"><label class="radio-inline"><input type="radio" name="inlineRadioOptions'+x+' id="inlineRadio1" value="good">good</label><label class="radio-inline"><input type="radio" name="inlineRadioOptions'+x+'" id="inlineRadio2" value="bad">bad</label><label class="radio-inline"><input type="radio" name="inlineRadioOptions'+x+'" id="inlineRadio3" value="competitive">competitive</label></fieldset></div>'); //add input box
-              x++; //text box increment
-          }
-      });
-
-      $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
-          e.preventDefault(); $(this).parent('div').parent('div').remove(); x--;
-      })
-      });
-      </script>
-
-    <div class="row">
-          <div class="control-group" id="fields">
-              <label class="control-label" for="field1">Weekly Report</label>
-
-                  <div class="row">
-                    <div class="col-md-6">
-                      <form action="/jon" role="form" autocomplete="off" >
-                        <div class="group">
-                          <div class="entry input-group col-xs-10">
-                            <input class="form-control" name="fields[]" type="text" placeholder="Subject" />
-                          </div>
-                          <div class="entry input-group col-xs-12">
-                            <textarea class="form-control" name="fields[]" type="text" placeholder="Description" rows="3"></textarea>
-                          </div>
-                          <div class="entry input-group col-xs-12">
-                            <input class="form-control" name="fields[]" type="text" placeholder="Hashtag" />
-                          </div>
-                          <fieldset class="radiogroup">
-                          <label class="radio-inline">
-                            <input type="radio" name="inlineRadioOptions0" id="inlineRadio1" value="good"> good
-                          </label>
-                          <label class="radio-inline">
-                            <input type="radio" name="inlineRadioOptions0" id="inlineRadio2" value="bad"> bad
-                          </label>
-                          <label class="radio-inline">
-                            <input type="radio" name="inlineRadioOptions0" id="inlineRadio3" value="competitive"> competitive
-                          </label>
-                        </fieldset>
-                        </div> <!-- end of div class group -->
-                      <br>
-                        <div class="btn-toolbar" role="toolbar" aria-label="...">
-                          <div class="btn-group" role="group" aria-label="...">
-                            <button class="btn btn-success btn-add" type="button">
-                              <span class="glyphicon glyphicon-plus"></span>
-                            </button>
-                          </div>
-                          <div class="btn-group" role="group" aria-label="...">
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          </div>
-                          <div class="btn-group" role="group" aria-label="...">
-                            <input type="submit" class="btn btn-default btn-primary" value="Submit">
-                          </div><!--end btn-group-->
-                        </div> <!-- end of button toolbar-->
-                      </form><!--end of form -->
-                      </div> <!--end of col -->
-
-                      <div class="col-md-2">
-                        <br>
-                      </div>
-                      <div class="col-md-4">
-                        <form class="form-inline" action="/" method="POST">
-                          <div class="form-group">
-                            <label for="inputPassword2" class="sr-only">search terms</label>
-                            <input type="text" class="form-control" name="search" placeholder="search terms">
-                          </div>
-                        <button type="submit" class="btn btn-default">Search</button>
-                        </form>
-                      </div>
-                    </div> <!--end of row-->
-                  </div>
-                  <br>
-
-
-
-          </div> <!-- end of control-group -->
-
-    </div> <!-- end of row -->
-  </div> <!-- end of container -->
-
-  </body>
-  </html>
 `
 
 	adminPage = `
@@ -1137,6 +1165,7 @@ const (
 	        <li><a href="#"><span class="sr-only">(current)</span></a></li>
 	        <li><a href="#"><span class="sr-only">(current)</span></a></li>
 	        <li><a href="#"><b>September 30th, 2015</b>: Tim Callaghan</a></li>
+					<li><img src="https://n2.cdn.socialcast.com/801245/socialcast.s3.amazonaws.com/tenants/5258/profile_photos/732278/tim_callaghan_square140.jpg?AWSAccessKeyId=AKIAISVYYXCGCXLJL2TQ&Expires=1445169600&Signature=TlZgwT7FtBEr2E1qCextWCpNMfc%3D" height=50px></li>
 	      </ul>
 
 	    </div><!-- /.navbar-collapse -->
@@ -1199,13 +1228,25 @@ const (
 	                      <br>
 	                    </div>
 	                    <div class="col-md-4">
-	                      <form class="form-inline" action="/admin" >
-	                        <div class="form-group">
-	                          <label for="inputPassword2" class="sr-only">search terms</label>
-	                          <input type="text" class="form-control" name="search" placeholder="search terms">
-	                        </div>
-	                      <button type="submit" class="btn btn-default">Search</button>
-	                      </form>
+											<form class="form-horizontal" action="/search">
+												<div class="form-group-lg">
+													<label for="inputPassword2" class="sr-only">search terms</label>
+													<input type="text" class="form-control" name="search" placeholder="search terms">
+												</div>
+												<p>
+												<div class="form-group-sm">
+													<label class="col-sm-4 control-label" for="formGroupInputSmall">From Date</label>
+													<div class="col-sm-8"><input type="date" class="form-control" name="date1" placeholder="From Date"></div>
+												</div>
+												<div class="form-group-sm">
+													<label class="col-sm-4 control-label" for="formGroupInputSmall">To Date</label>
+													<div class="col-sm-8"><input type="date" class="form-control" name="date1" placeholder="From Date"></div>
+												</div>
+												&nbsp;
+												<div class="form group-sm">
+													<button type="submit" class="btn btn-default">Search</button>
+												</div>
+											</form>
 	                    </div>
 	                  </div> <!--end of row-->
 	                </div>

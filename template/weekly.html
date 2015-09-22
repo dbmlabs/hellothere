@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>vWeekly Reporter</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <style type="text/css">
     .entry:not(:first-of-type)
 {
@@ -16,11 +15,37 @@
     font-size: 20px;
 }
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>-->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <link href="http://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
 
+    <script>
+      $(function() {
+        var availableTags = [
+          "#vROps",
+          "#NSX",
+          "#vSphere6",
+          "#vRA",
+          "#BigData",
+          "#vCM",
+          "#Containers",
+          "#Docker",
+          "#vDS",
+          "#Dell",
+          "#EVORack",
+          "#vRAC",
+          "#vCA"
+        ];
+        $( "#tags" ).autocomplete({
+          source: availableTags
+        });
+      });
+      </script>
 
 </head>
 <body>
@@ -68,7 +93,6 @@
   </div><!-- /.container-fluid -->
 
 </nav>
-
   <div class="container">
     <script>
     $(document).ready(function() {
@@ -97,26 +121,26 @@
 
                 <div class="row">
                   <div class="col-md-6">
-                    <form action="/" role="form" autocomplete="off" >
+                    <form action="/jon" role="form" autocomplete="off" >
                       <div class="group">
                         <div class="entry input-group col-xs-10">
-                          <input class="form-control" name="fields[]" type="text" placeholder="Subject" />
+                          <input class="form-control" name="fields[]" type="text" placeholder="Subject" required/>
                         </div>
                         <div class="entry input-group col-xs-12">
-                          <textarea class="form-control" name="fields[]" type="text" placeholder="Description" rows="3"></textarea>
+                          <textarea class="form-control" name="fields[]" type="text" placeholder="Description" rows="3" required></textarea>
                         </div>
                         <div class="entry input-group col-xs-12">
-                          <input class="form-control" name="fields[]" type="text" placeholder="Hashtag" />
+                          <input class="form-control" id="tags" name="fields[]" type="text" placeholder="Hashtag" required />
                         </div>
                         <fieldset class="radiogroup">
                         <label class="radio-inline">
-                          <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="good"> good
+                          <input type="radio" name="inlineRadioOptions0" id="inlineRadio1" value="good"> good
                         </label>
                         <label class="radio-inline">
-                          <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="bad"> bad
+                          <input type="radio" name="inlineRadioOptions0" id="inlineRadio2" value="bad"> bad
                         </label>
                         <label class="radio-inline">
-                          <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="competitive"> competitive
+                          <input type="radio" name="inlineRadioOptions0" id="inlineRadio3" value="competitive"> competitive
                         </label>
                       </fieldset>
                       </div> <!-- end of div class group -->

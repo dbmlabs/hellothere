@@ -1,9 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="utf-8">
     <title>vWeekly Reporter</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <style type="text/css">
+    .entry:not(:first-of-type)
+{
+    margin-top: 10px;
+}
+
+.glyphicon
+{
+    font-size: 20px;
+}
+    </style>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+    <script>
+      $(function() {
+        var availableTags = [
+          "ActionScript",
+          "AppleScript",
+          "Asp",
+          "BASIC",
+          "C",
+          "C++",
+          "Clojure",
+          "COBOL",
+          "ColdFusion",
+          "Erlang",
+          "Fortran",
+          "Groovy",
+          "Haskell",
+          "Java",
+          "JavaScript",
+          "Lisp",
+          "Perl",
+          "PHP",
+          "Python",
+          "Ruby",
+          "Scala",
+          "Scheme"
+        ];
+        $( "#tags" ).autocomplete({
+          source: availableTags
+        });
+      });
+    </script>
 
 </head>
+
+
 <body>
   <div class="container">
 
@@ -15,14 +69,9 @@
                 <div class="controls">
                   <div class="row">
                     <div class="col-md-4">
-                    <div class="entry input-group col-xs-10">
-                        <input class="form-control" name="fields[]" type="text" placeholder="Subject" />
-                    </div>
+
                     <div class="entry input-group col-xs-12">
-                        <textarea class="form-control" name="fields[]" type="text" placeholder="Description" rows="3"></textarea>
-                    </div>
-                    <div class="entry input-group col-xs-12">
-                        <input class="form-control" name="fields[]" type="text" placeholder="Hashtag" />
+                          <input id="tags">
                     </div>
                     </div> <!--end of col -->
                   </div> <!--end of row-->
@@ -31,9 +80,6 @@
 
               <div class="btn-toolbar" role="toolbar" aria-label="...">
                 <div class="btn-group" role="group" aria-label="...">
-                  <button class="btn btn-success btn-add" type="button">
-                    <span class="glyphicon glyphicon-plus"></span>
-                  </button>
                 <div class="btn-group" role="group" aria-label="...">
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </div>
