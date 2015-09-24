@@ -30,19 +30,36 @@ type Page struct {
 }
 
 func main() {
+	http.HandleFunc("/heatmap", heatmap)
 	http.HandleFunc("/jcham", homePage)
 	http.HandleFunc("/tim", admin)
 	http.HandleFunc("/favicon.ico", punt)
 	http.HandleFunc("/api", post)
 	http.HandleFunc("/admin", admin)
 	http.HandleFunc("/login", loginHandler)
-	http.HandleFunc("/analytics", analytics)
+	http.HandleFunc("/analytics", comp)
+	http.HandleFunc("/dashboard", dashboard)
+	http.HandleFunc("/dashboard2", dashboard2)
 	http.HandleFunc("/search", search)
 	http.HandleFunc("/", index)
 	http.HandleFunc("/api/manager/tim", apiHandler)
+	http.HandleFunc("/scripts/", scripts)
 	if err := http.ListenAndServe(":9001", nil); err != nil {
 		log.Fatal("failed to start server", err)
 	}
+}
+
+func comp(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprint(w, compPage)
+}
+func heatmap(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprint(w, heatmapPage)
+}
+func dashboard2(w http.ResponseWriter, r *http.Request) {
+	return
+}
+func scripts(w http.ResponseWriter, r *http.Request) {
+	http.ServeFile(w, r, r.URL.Path[1:])
 }
 
 func search(w http.ResponseWriter, r *http.Request) {
@@ -83,11 +100,17 @@ func apiHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	w.Write(results)
 }
+
 func analytics(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, charts)
 }
 
+func dashboard(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprint(w, dashboardPage)
+}
+
 func index(w http.ResponseWriter, r *http.Request) {
+	//	http.ServeFile(w, r, r.URL.Path[1:])
 	fmt.Fprint(w, loginPage)
 }
 func loginHandler(w http.ResponseWriter, r *http.Request) {
@@ -95,7 +118,7 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 	user := r.FormValue("inputEmail")
 	fmt.Println("user from  is", user)
 	if user == "jcham@vmware.com" {
-		http.Redirect(w, r, "/jon", 302)
+		http.Redirect(w, r, "/jcham", 302)
 	} else if user == "tim@vmware.com" {
 		http.Redirect(w, r, "/tim", 302)
 	}

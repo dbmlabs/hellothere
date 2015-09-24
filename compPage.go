@@ -1,0 +1,118 @@
+package main
+
+const (
+	compPage = `
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Polestar Analytics Dashboard</title>
+    <link href="/scripts/ionic.css" rel="stylesheet">
+    <link href="/scripts/app.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">VMware Weekly Reporter</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Help <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">About</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Admin</a></li>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+        <li><a href="#"><span class="sr-only">(current)</span></a></li>
+        <li><a href="#"><span class="sr-only">(current)</span></a></li>
+        <li><a href="#"><span class="sr-only">(current)</span></a></li>
+        <li><a href="#"><span class="sr-only">(current)</span></a></li>
+        <li><a href="#"><span class="sr-only">(current)</span></a></li>
+        <li><a href="#"><span class="sr-only">(current)</span></a></li>
+        <li><a href="#"><b>September 30th, 2015</b>: Jonathan Cham</a></li>
+      </ul>
+
+    </div><!-- /.navbar-collapse -->
+
+  </div><!-- /.container-fluid -->
+
+  </nav>
+<div id="left-nav">
+    <div class="welcome">Welcome, Timothy</div>
+    <div class="title">Menu</div>
+    <ul class="list">
+        <li class="list-item">
+            <a class="item-content" href="#dashboard/1">
+                <i class="ion-stats-bars"></i>
+                <h3>Competitive Dashboard</h3>
+                <p>Competitive Trends</p>
+            </a>
+        </li>
+        <li class="list-item">
+            <a class="item-content" href="#dashboard/2">
+                <i class="ion-pie-graph"></i>
+                <h3>What's Not Working</h3>
+                <p>Not Working Trends</p>
+            </a>
+        </li>
+        <li class="list-item">
+            <a class="item-content" href="#dashboard/3">
+                <i class="ion-connection-bars"></i>
+                <h3>What's Working</h3>
+                <p>What's Good Trends</p>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div id="container" class="transition">
+    <header class="bar bar-header nav-bar bar-stable">
+        <button id="btn-menu" class="button button-icon" style="font-size: 22px;"><i class="ion-navicon-round"></i></button>
+        <h1 class="title">Polestar Dashboard</h1>
+    </header>
+<div>
+  hello there
+</div>
+    <div id="content"></div>
+</div>
+
+<script src="http://coenraets.org/apps/olympic-dashboard/lib/jquery.js"></script>
+<script src="http://coenraets.org/apps/olympic-dashboard/lib/fastclick.js"></script>
+<script src="http://coenraets.org/apps/olympic-dashboard/lib/chartjs/globalize.min.js"></script>
+<script src="http://coenraets.org/apps/olympic-dashboard/lib/chartjs/dx.chartjs.js"></script>
+
+<script src="/scripts/data.js"></script>
+<script src="/scripts/data2.js"></script>
+<script src="/scripts/dashboard1.js"></script>
+<script src="/scripts/dashboard2.js"></script>
+<script src="/scripts/dashboard3.js"></script>
+<script src="/scripts/app.js"></script>
+
+</body>
+</html>
+`
+)

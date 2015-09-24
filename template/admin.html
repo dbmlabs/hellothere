@@ -1,30 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+<meta charset="utf-8">
     <title>vWeekly Reporter</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <style type="text/css">
     .entry:not(:first-of-type)
 {
     margin-top: 10px;
 }
-
 .glyphicon
 {
     font-size: 20px;
 }
     </style>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
-
-    <script src="jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="http://www.appelsiini.net/download/jquery.jeditable.mini.js"></script>
-    <script>$(document).ready(function() {
+
+
+
+    <script>
+    $(document).ready(function() {
      $('.edit').editable('http://localhost:9001/api', {
          type      : 'textarea',
          cancel    : 'Cancel',
@@ -32,7 +30,7 @@
          indicator : '<img src="img/indicator.gif">',
          tooltip   : 'Click to edit...',
       });
-    });</script>
+ });</script>
 </head>
 <body>
   <nav class="navbar navbar-default">
@@ -72,6 +70,7 @@
         <li><a href="#"><span class="sr-only">(current)</span></a></li>
         <li><a href="#"><span class="sr-only">(current)</span></a></li>
         <li><a href="#"><b>September 30th, 2015</b>: Jonathan Cham</a></li>
+        <li><img src="https://n2.cdn.socialcast.com/801245/socialcast.s3.amazonaws.com/tenants/5258/profile_photos/1750704/jc_square140.jpg?AWSAccessKeyId=AKIAISVYYXCGCXLJL2TQ&Expires=1445169600&Signature=OiWwWzyGsXa%2BcWpwbcQ2bG2XIwk%3D" height=50px></li>
       </ul>
 
     </div><!-- /.navbar-collapse -->
@@ -91,7 +90,7 @@
     $(add_button).click(function(e){ //on add input button click
         e.preventDefault();
         if(x < max_fields){ //max input box allowed
-          $(wrapper).append('<div><!--start of loop--><br><div class="pull-right"><a href="#" class="remove_field"><button class="btn btn-danger btn-minus" type="button" align="right"><span class="glyphicon glyphicon-minus"></span></button></a></div><div class="entry input-group col-xs-10"><div class="edit">{{.Title}}</div></div><div class="entry input-group col-xs-12"><div class="edit">{{.Content}}</div></div><div class="entry input-group col-xs-12"><div class="edit">{{.Hash}}</div></div><div class="entry input-group col-xs-12"><div class="edit">{{.Group}}</div></div></div> '); //add input box
+          $(wrapper).append('<div><br><div class="pull-right"><a href="#" class="remove_field"><button class="btn btn-danger btn-add" type="button" align="right"><span class="glyphicon glyphicon-minus"></span></button></a></div><div class="entry input-group col-xs-10"><input class="form-control" name="fields[]" type="text" placeholder="Subject" /></div><div class="entry input-group col-xs-12"><textarea class="form-control" name="fields[]" type="text" placeholder="Description" rows="3"></textarea></div><div class="entry input-group col-xs-12"><input class="form-control" name="fields[]" type="text" placeholder="Hashtag" /></div><fieldset class="radiogroup"><label class="radio-inline"><input type="radio" name="inlineRadioOptions'+x+' id="inlineRadio1" value="good">good</label><label class="radio-inline"><input type="radio" name="inlineRadioOptions'+x+'" id="inlineRadio2" value="bad">bad</label><label class="radio-inline"><input type="radio" name="inlineRadioOptions'+x+'" id="inlineRadio3" value="competitive">competitive</label></fieldset></div>'); //add input box
             x++; //text box increment
         }
     });
@@ -104,7 +103,7 @@
 
   <div class="row">
         <div class="control-group" id="fields">
-            <label class="control-label" for="field1">Weekly Report</label>
+            <label class="control-label" for="field1">Weekly Report - Manager Page</label>
 
                 <div class="row">
                   <div class="col-md-6">
@@ -134,25 +133,25 @@
                       <br>
                     </div>
                     <div class="col-md-4">
-                      <form class="form-horizontal" action="/" method="POST">
-                        <div class="form-group-lg">
-                          <label for="inputPassword2" class="sr-only">search terms</label>
-                          <input type="text" class="form-control" name="search" placeholder="search terms">
-                        </div>
-                        <p>
-                        <div class="form-group-sm">
-                          <label class="col-sm-4 control-label" for="formGroupInputSmall">From Date</label>
-                          <div class="col-sm-8"><input type="date" class="form-control" name="date1" placeholder="From Date"></div>
-                        </div>
-                        <div class="form-group-sm">
-                          <label class="col-sm-4 control-label" for="formGroupInputSmall">To Date</label>
-                          <div class="col-sm-8"><input type="date" class="form-control" name="date1" placeholder="From Date"></div>
-                        </div>
-                        &nbsp;
-                        <div class="form group-sm">
-                          <button type="submit" class="btn btn-default">Search</button>
-                        </div>
-                      </form>
+                    <form class="form-horizontal" action="/search">
+                      <div class="form-group-lg">
+                        <label for="inputPassword2" class="sr-only">search terms</label>
+                        <input type="text" class="form-control" name="search" placeholder="search terms">
+                      </div>
+                      <p>
+                      <div class="form-group-sm">
+                        <label class="col-sm-4 control-label" for="formGroupInputSmall">From Date</label>
+                        <div class="col-sm-8"><input type="date" class="form-control" name="date1" placeholder="From Date"></div>
+                      </div>
+                      <div class="form-group-sm">
+                        <label class="col-sm-4 control-label" for="formGroupInputSmall">To Date</label>
+                        <div class="col-sm-8"><input type="date" class="form-control" name="date1" placeholder="From Date"></div>
+                      </div>
+                      &nbsp;
+                      <div class="form group-sm">
+                        <button type="submit" class="btn btn-default">Search</button>
+                      </div>
+                    </form>
                     </div>
                   </div> <!--end of row-->
                 </div>
