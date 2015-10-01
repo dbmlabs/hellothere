@@ -23,10 +23,16 @@ type Data struct {
 	Hash    string        `bson:"hash"`
 	Group   string        `bson:"group"`
 	Week    string        `bson:"week"`
+	Org     string        `bson:"org"`
+	Date    string        `bson:"date"`
 }
 
 type Page struct {
 	Form string
+}
+
+type Search struct {
+	SearchString string `json:"searchString"`
 }
 
 func main() {
@@ -167,6 +173,26 @@ func homePage(w http.ResponseWriter, r *http.Request) {
 }
 
 func query(query string) (results []Data) {
+	url := "http://localhost:9002/api/search"
+	var input Search
+	client := &http.Client{}
+	fmt.Println("in query function")
+	input.SearchString = query
+	temp, _ := json.Marshal(input)
+
+	blah := bytes.NewReader(temp)
+	req, _ := http.NewRequest("POST", url, blah)
+
+	resp, _ := client.Do(req)
+	fmt.Println("here is the response", resp)
+	body, _ := ioutil.ReadAll(resp.Body)
+	json.Unmarshal(body, &results)
+	fmt.Println("results from api search are", results)
+	return
+}
+
+/* Using API request instead
+func query(query string) (results []Data) {
 	session, _ := mgo.Dial("192.168.22.128:27017")
 	c := session.DB("test").C("weekly")
 	//temp := new([]Data)
@@ -186,7 +212,7 @@ func query(query string) (results []Data) {
 	}
 	return
 }
-
+*/
 func processForm(w http.ResponseWriter, r *http.Request) (values []Data) {
 	r.ParseForm()
 	x := r.Form["fields[]"]

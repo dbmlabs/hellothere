@@ -1,9 +1,9 @@
 var summary2 = [
     {"year": "May 2015", "SDDC, integration": 10, "vRA, integration": 13, "NSX, upgrades": 22, "SDDC, integration": 26, "vCenter, SSO": 23, "VSAN, performance": 13},
     {"year": "June 2015", "vRA, integration": 15, "NSX, upgrades": 27, "SDDC, integration": 25, "vCenter, SSO": 14, "VSAN, performance": 13},
-    {"year": "July 2015", "VSAN, performance": 20, "vRA, integration": 17, "NSX, upgrades": 34, "SDDC, integration": 25, "vCenter, SSO": 13, "VSAN, performance": 24},
-    {"year": "August 2015", "vRA, integration": 24, "NSX, upgrades": 28, "SDDC, integration": 19, "vCenter, SSO": 20, "VSAN, performance": 25},
-    {"year": "September 2015", "vRA, integration": 20, "vRA, integration": 26, "NSX, upgrades": 30, "SDDC, integration": 23, "vCenter, SSO": 15, "VSAN, performance": 37}
+    {"year": "July 2015", "VSAN, performance": 20, "vRA, integration": 17, "NSX, upgrades": 34, "SDDC, integration": 15, "vCenter, SSO": 13, "VSAN, performance": 24},
+    {"year": "August 2015", "vRA, integration": 24, "NSX, upgrades": 28, "SDDC, integration": 19, "vCenter, SSO": 10, "VSAN, performance": 25},
+    {"year": "September 2015", "vRA, integration": 20, "vRA, integration": 30, "NSX, upgrades": 15, "SDDC, integration": 23, "vCenter, SSO": 5, "VSAN, performance": 37}
 ];
 
 

@@ -9,10 +9,13 @@ const (
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title>Polestar Analytics Dashboard</title>
+    <title>Exosphere Analytics Dashboard</title>
     <link href="/scripts/ionic.css" rel="stylesheet">
     <link href="/scripts/app.css" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+			 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 
 </head>
 
@@ -21,40 +24,43 @@ const (
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
+		<a class="navbar-brand" href="#">
+		<img alt="Brand" src="http://www.vmware.com/files/images/vmrc/VMware_logo_gry_RGB_72dpi.jpg" height="25px">
+		</a>
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">VMware Weekly Reporter</a>
+      <a class="navbar-brand" href="#">VMware Status Reporter</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Help <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">About</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Admin</a></li>
-            <li><a href="#">Help</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-        <li><a href="#"><span class="sr-only">(current)</span></a></li>
-        <li><a href="#"><span class="sr-only">(current)</span></a></li>
-        <li><a href="#"><span class="sr-only">(current)</span></a></li>
-        <li><a href="#"><span class="sr-only">(current)</span></a></li>
-        <li><a href="#"><span class="sr-only">(current)</span></a></li>
-        <li><a href="#"><span class="sr-only">(current)</span></a></li>
-        <li><a href="#"><b>September 30th, 2015</b>: Jonathan Cham</a></li>
-      </ul>
+		<ul class="nav navbar-nav">
+			<li class="active"><a href="#">Help <span class="sr-only">(current)</span></a></li>
+			<li><a href="#">About</a></li>
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tools <span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/admin">Admin</a></li>
+					<li><a href="#">Help</a></li>
+					<li><a href="/analytics">Analytics</a></li>
+					<li><a href="/heatmap">Heatmap</a></li>
+					<li role="separator" class="divider"></li>
+					<li><a href="#">Send to Socialcast</a></li>
+				</ul>
+			</li>
+			<li><a href="#"><span class="sr-only">(current)</span></a></li>
+			<li><a href="#"><span class="sr-only">(current)</span></a></li>
+			<li><a href="#"><span class="sr-only">(current)</span></a></li>
+			<li><a href="#"><span class="sr-only">(current)</span></a></li>
+			<li><a href="#"><span class="sr-only">(current)</span></a></li>
+			<li><a href="#"><span class="sr-only">(current)</span></a></li>
+			<li><a href="#"><b>September 30th, 2015</b>: Tim Callaghan</a></li>
+			<li><img src="https://n2.cdn.socialcast.com/801245/socialcast.s3.amazonaws.com/tenants/5258/profile_photos/732278/tim_callaghan_square140.jpg?AWSAccessKeyId=AKIAISVYYXCGCXLJL2TQ&Expires=1445169600&Signature=TlZgwT7FtBEr2E1qCextWCpNMfc%3D" height=50px></li>
+		</ul>
 
     </div><!-- /.navbar-collapse -->
 
@@ -92,7 +98,7 @@ const (
 <div id="container" class="transition">
     <header class="bar bar-header nav-bar bar-stable">
         <button id="btn-menu" class="button button-icon" style="font-size: 22px;"><i class="ion-navicon-round"></i></button>
-        <h1 class="title">Polestar Dashboard</h1>
+        <h1 class="title">Project Exosphere Dashboard</h1>
     </header>
 <div>
   hello there

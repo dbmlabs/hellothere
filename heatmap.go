@@ -7,7 +7,7 @@ const (
 <html>
   <head>
   <meta charset="utf-8">
-      <title>vWeekly Reporter</title>
+      <title>vStatus Reporter</title>
           <meta name="viewport" content="width=device-width, initial-scale=1">
       <style type="text/css">
       .entry:not(:first-of-type)
@@ -91,7 +91,7 @@ const (
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">VMware Weekly Reporter</a>
+        <a class="navbar-brand" href="#">VMware Status Reporter</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -101,14 +101,14 @@ const (
           <li><a href="#">About</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tools <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Admin</a></li>
-              <li><a href="#">Help</a></li>
-              <li><a href="/dashboard">Analytics</a></li>
-              <li><a href="#">Analytics 2</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Send to Socialcast</a></li>
-            </ul>
+						<ul class="dropdown-menu">
+						<li><a href="/admin">Admin</a></li>
+							<li><a href="#">Help</a></li>
+							<li><a href="/analytics">Analytics</a></li>
+							<li><a href="/heatmap">Heatmap</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="#">Send to Socialcast</a></li>
+						</ul>
           </li>
           <li><a href="#"><span class="sr-only">(current)</span></a></li>
           <li><a href="#"><span class="sr-only">(current)</span></a></li>
@@ -116,15 +116,15 @@ const (
           <li><a href="#"><span class="sr-only">(current)</span></a></li>
           <li><a href="#"><span class="sr-only">(current)</span></a></li>
           <li><a href="#"><span class="sr-only">(current)</span></a></li>
-          <li><a href="#"><b>September 30th, 2015</b>: Tim Callaghan</a></li>
-          <li><img src="https://n2.cdn.socialcast.com/801245/socialcast.s3.amazonaws.com/tenants/5258/profile_photos/732278/tim_callaghan_square140.jpg?AWSAccessKeyId=AKIAISVYYXCGCXLJL2TQ&Expires=1445169600&Signature=TlZgwT7FtBEr2E1qCextWCpNMfc%3D" height=50px></li>
+          <li><a href="#"><b>September 30th, 2015</b>: Zubair Ansari</a></li>
+          <li><img src="https://n3.cdn.socialcast.com/801245/socialcast.s3.amazonaws.com/tenants/5258/profile_photos/1235438/1c67591_square140.jpg?AWSAccessKeyId=AKIAISVYYXCGCXLJL2TQ&Expires=1445169600&Signature=z%2BG7Q%2BHDNoPn08S7rUHWbgApYVQ%3D" height=50px></li>
         </ul>
 
       </div><!-- /.navbar-collapse -->
 
     </div><!-- /.container-fluid -->
 
-    </nav>
+    </nav><center><h3>Product Manager Heatmap for vRealize Operations</h3></center>
       <div id="chart" class="clearfix"></div>
 
   <script src="http://d3js.org/d3.v3.js"></script>
@@ -150,7 +150,7 @@ const (
         .range(d3.range(11).map(function(d) { return "q" + d + "-11"; }));
 
     var svg = d3.select("#chart").selectAll("svg")
-        .data(d3.range(2014, 2016))
+        .data(d3.range(2015, 2016))
       .enter().append("svg")
         .attr("width", width)
         .attr("height", height)
@@ -212,7 +212,7 @@ const (
       .style("visibility", "hidden")
       .text("a simple tooltip");
 
-    d3.csv("/scripts/dji.csv", function(error, csv) {
+    d3.csv("http://localhost:9003/api/bigdata/json/dji.csv", function(error, csv) {
       var data = d3.nest()
         .key(function(d) { return d.Date; })
         .rollup(function(d) { return (d[0].Close - d[0].Open) / d[0].Open; })
